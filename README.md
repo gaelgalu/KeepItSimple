@@ -4,7 +4,9 @@ Documentation of the APIs: https://documenter.getpostman.com/view/8415140/2s9YJa
 
 Instructions to setup local database: 
 
-First, we need to create a database named ```keepitsimple_db```
+First, we'll need to run an instance of MongoDB.
+
+The next step would be creating a database named ```keepitsimple_db```
 
 After that, the only required instruction in order to run our app is to run the following query. This will create the required roles for our users.
 
