@@ -3,7 +3,6 @@ package CleverIT.KeepItSimple.payload.request;
 import java.util.List;
 
 public class SearchAndFilter {
-    private String tagname;
     private String title;
     private List<String> tags;
 
@@ -13,16 +12,11 @@ public class SearchAndFilter {
 
     }
 
-    public SearchAndFilter(String tagname, String title, List<String> tags, List<String> status) {
-        this.tagname = tagname;
+    public SearchAndFilter(String title, List<String> tags, List<String> status) {
         this.title = title;
         this.tags = tags;
         this.status = status;
     }
-
-    public String getTagname() { return tagname; }
-
-    public void setTagname(String tagname) { this.tagname = tagname; }
 
     public String getTitle() { return title; }
 

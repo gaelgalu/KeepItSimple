@@ -276,19 +276,6 @@ public class TaskController {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad request");
 	}
 
-	@PostMapping("/search-by-tagname")
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
-	public ResponseEntity<?> findTasksByTagname(@RequestBody SearchAndFilter searchAndFilter, Authentication authentication) {
-		User user = this.userRepository.findByUsername(authentication.getName())
-				.orElseThrow(() -> new UsernameNotFoundException("Username was not found"));
-
-		if (searchAndFilter.getTagname() != null && !searchAndFilter.getTagname().isEmpty()) {
-			return ResponseEntity.status(HttpStatus.OK).body(tagRepository.findByTagnameAndCreatedBy(searchAndFilter.getTagname(), user));
-		}
-
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad request");
-	}
-
 	@GetMapping("/search-by-deadline")
 	public ResponseEntity<List<Task>> findTasksWithDeadlineBefore(
 			@RequestParam("deadline") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate deadline,
